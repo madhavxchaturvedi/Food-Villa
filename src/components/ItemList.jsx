@@ -1,15 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IMG_CDN_URL } from "./Contants";
 import { addItem } from "../utils/cartSlice";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ItemList = ({ items }) => {
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
+
 
   const addFoodItem = (item) => {
-    console.log(item);
-    dispatch(addItem(item));
-    toast.success("Added to cart!");
+    if (user) {
+      console.log(item);
+      dispatch(addItem(item));
+      toast.success("Added to cart!");
+    } else {
+      Navigate("/login");
+    }
   };
   return (
     <div>

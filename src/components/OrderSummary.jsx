@@ -64,12 +64,12 @@ const OrderSummary = () => {
         <div className="my-4 border-b">
           <div className="md:flex py-4 border-t justify-between items-center font-bold text-lg md:text-2xl">
             <h1>Total Amount</h1>
-            <h1 className="text-[#7fba24] text-3xl">
+            <h1 className="text-[#EB5B00] text-3xl">
               ₹ {parseFloat(totalAmt).toFixed(2)}
             </h1>
           </div>
         </div>
-        <button className="w-full block hover:scale-105 transition delay-150 mt-4 uppercase font-bold text-lg bg-[#7fba24] text-white text-center p-4 rounded-md">
+        <button className="w-full block hover:scale-105 transition delay-150 mt-4 uppercase font-bold text-lg bg-[#EB5B00] text-white text-center p-4 rounded-md">
           Place order
         </button>
       </div>

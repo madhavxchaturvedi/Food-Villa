@@ -74,7 +74,7 @@ const RestaurentMenu = () => {
             <p className="mx-1 text-gray-500">•</p>
             <h2 className="font-bold text-base">{costForTwoMessage}</h2>
           </div>
-          <span className="ml-5 font-semibold text-sm text-[#7fba24] underline">
+          <span className="ml-5 font-semibold text-sm text-[#EB5B00] underline">
             {cuisines.join(", ")}
           </span>
           <div className="flex flex-col ml-5 pb-4">

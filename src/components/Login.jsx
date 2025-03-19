@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-// import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -8,13 +7,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-// import { addUser } from "../utils/userSlice";
-// import { BACKGROUND_IMG, USER_AVATAR } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  // const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -43,26 +43,25 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          // updateProfile(user, {
-          //   displayName: name.current.value,
-          //   photoURL: USER_AVATAR,
-          // })
-        //     .then(() => {
-        //       const { uid, email, displayName, photoURL } = auth.currentUser;
-        //       dispatch(
-        //         addUser({
-        //           uid: uid,
-        //           email: email,
-        //           displayName: displayName,
-        //           photoURL: photoURL,
-        //         })
-        //       );
-        //       console.log(auth.currentUser);
-        //     })
-        //     .catch((error) => {
-        //       setErrorMessage(error.message);
-        //     });
-        //   // console.log(user);
+          Navigate("/");
+          updateProfile(user, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                })
+              );
+              console.log(auth.currentUser);
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -78,7 +77,8 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          // console.log(user);
+          console.log(user);
+          Navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -90,13 +90,19 @@ const Login = () => {
 
   return (
     <div>
-      {/* <Header /> */}
-      {/* <div className="absolute bg-black w-full h-full p-8 bg-opacity-50"></div> */}
+      <div className="absolute">
+        <img
+          className="h-screen w-screen object-cover"
+          src="https://wallpapers.com/images/hd/food-4k-1pf6px6ryqfjtnyr.jpg"
+          alt="background_image"
+        ></img>
+      </div>
+      <div className="absolute w-full h-full p-8 bg-opacity-50"></div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute bg-green-400 w-[30%] h-[70%] px-16 py-10 my-24 mx-auto right-0 left-0 text-white rounded-md bg-opacity-70"
+        className="absolute backdrop-blur-xl w-[30%] h-[70%] px-16 py-10 my-24 mx-auto right-0 left-0 text-white border-2  rounded-md bg-opacity-70"
       >
-        <h1 className="font-bold text-3xl py-4 my-2">
+        <h1 className="font-bold  text-3xl py-4 my-2">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -131,7 +137,7 @@ const Login = () => {
         </button>
         <p className="my-2 cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
-            ? "New to Netflix? Sign Up now"
+            ? "New to Food Villa? Sign Up now"
             : "Already registered? Sign In now"}
         </p>
       </form>

@@ -105,7 +105,7 @@ const CartItemList = () => {
                     onClick={() => decreaseQuantity(item?.item?.card?.info?.id)}
                     disabled={item?.quantity === 1}
                     className={
-                      "bg-[#7fba24] disabled:bg-[#7fba24]/50 disabled:cursor-not-allowed text-white font-extrabold w-8 h-8 rounded-md"
+                      "bg-[#EB5B00] disabled:bg-[#EB5B00]/50 disabled:cursor-not-allowed text-white font-extrabold w-8 h-8 rounded-md"
                     }
                   >
                     -
@@ -115,7 +115,7 @@ const CartItemList = () => {
                   </p>
                   <button
                     onClick={() => increaseQuantity(item?.item?.card?.info?.id)}
-                    className="bg-[#7fba24] text-white font-extrabold w-8 h-8 rounded-md"
+                    className="bg-[#EB5B00] text-white font-extrabold w-8 h-8 rounded-md"
                   >
                     +
                   </button>
@@ -123,7 +123,7 @@ const CartItemList = () => {
 
                 <button
                   onClick={() => removeFromCart(item?.item?.card?.info?.id)}
-                  className="border border-[#7fba24] text-sm font-semibold text-[#7fba24] hover:bg-[#7fba24] hover:text-white p-2 px-4 rounded-md "
+                  className="border border-[#EB5B00] text-sm font-semibold text-[#EB5B00] hover:bg-[#EB5B00] hover:text-white p-2 px-4 rounded-md "
                 >
                   Remove
                 </button>

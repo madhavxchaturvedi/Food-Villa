@@ -10,17 +10,17 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Titel = () => (
-  <div className="logo text-[2.2rem]  pl-16 ">
+  <div className="logo text-[2.2rem]  pl-10 pt-2 ">
     <Link to="/">
       <div className="flex items-center hover:scale-105 transition  delay-150">
-        <div className="afacad-flux-title ">Food Villa</div>
+        <div className="afacad-flux-title text-[#EB5B00] text-4xl font-bold">Food Villa</div>
       </div>
     </Link>
   </div>
@@ -28,12 +28,21 @@ const Titel = () => (
 
 // functional component
 const Header = () => {
-  const [isLogBtn, setIsLogBtn] = useState(true);
   const Navigate = useNavigate();
   const online = useOnline();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const cartItems = useSelector((store) => store.cart.items);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        Navigate("/");
+      })
+      .catch((error) => {
+        // Navigate("/error");
+      });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -72,7 +81,7 @@ const Header = () => {
               </li>
             </Link> */}
             <Link to="/contact">
-              <li className="px-4 transition ease-in hover:text-[#87c727] py-1">
+              <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
                 <FontAwesomeIcon icon={faHeadset} className="pr-1" />
                 Contact
               </li>
@@ -83,15 +92,15 @@ const Header = () => {
             <Link to="/cart">
               <li>
                 <button
-                  className="px-4 py-1 bg-white text-[#7fba24] rounded-md hover:scale-105 transition ease-in"
+                  className="px-4 py-1 bg-white text-[#EB5B00] rounded-md hover:scale-105 transition ease-in"
                   data-testid="cart"
                 >
                   <div className="absolute pl-[4.2rem] -mt-[0.6rem]">
                     <span class="relative flex h-[1.2rem] w-[1.2rem]">
                       {cartItems.length > 0 ? (
                         <>
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-90"></span>
-                          <span class="relative inline-flex rounded-full h-[1.2rem] w-[1.2rem] bg-[#7fba24]"></span>
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-600 opacity-90"></span>
+                          <span class="relative inline-flex rounded-full h-[1.2rem] w-[1.2rem] bg-[#EB5B00]"></span>
                         </>
                       ) : null}
                     </span>
@@ -105,9 +114,13 @@ const Header = () => {
               </li>
             </Link>
           </ul>
-          <div className="log-btn px-4 transition ease-in hover:text-[#87c727] py-1">
-            {isLogBtn ? (
-              <button onClick={() => setIsLogBtn(false)}>
+          <div className="log-btn px-4 transition ease-in hover:text-[#EB5B00] py-1">
+            {user ? (
+              <button
+                onClick={() => {
+                  handleSignOut();
+                }}
+              >
                 <FontAwesomeIcon icon={faRightFromBracket} className="pr-1" />
                 logout
               </button>

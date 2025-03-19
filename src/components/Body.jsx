@@ -45,7 +45,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container m-2 flex justify-center z-20 sticky top-5">
+      <div className="search-container m-2 flex justify-center">
         <input
           type="text"
           className="search-input p-3 mt-2 rounded-l-lg w-[600px] h-10 shadow-xl outline-indigo-500 z-10"
