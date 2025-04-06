@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { filterData } from "../utils/helper";
+import Slider from "./Slider";
 
 const Body = () => {
   const [allRestaurants, setallRestaurants] = useState([]);
@@ -77,7 +78,34 @@ const Body = () => {
           }}
         ></input> */}
       </div>
-      <div className="restaurant-list flex flex-wrap justify-center">
+
+      <>
+        <div className="flex justify-between items-center mt-14 mx-12 px-4">
+          <h1 className="font-bold text-[1.7rem] leading-3 tracking-tight">
+            Top Rated Restaurant
+          </h1>
+          <Slider className="topResList" key="topResList" amount={450} />
+        </div>
+        <div className="topResList container-snap mx-12 p-4 gap-x-4 flex mt-2 mb-2 overflow-x-auto">
+          {filteredRestaurants.map((restaurant) => {
+            return (
+              <Link
+                to={"/restaurentmenu/" + restaurant.info.id}
+                key={restaurant.info.id}
+              >
+                <RestaurantCard {...restaurant.info} />
+              </Link>
+            );
+          })}
+        </div>
+      </>
+      <hr className="my-8 w-[92%] mx-auto" />
+      <div className="flex justify-between mt-14 items-center mx-12 px-4">
+        <h1 className="font-bold text-[1.7rem] leading-3 tracking-tight">
+          All Restaurant
+        </h1>
+      </div>
+      <div className="restaurant-list flex mt-8 mb-36 gap-x-3 flex-wrap justify-center">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link

@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import { Toaster } from "react-hot-toast";
 import Login from "./components/Login";
+import Help from "./components/Help";
 
 //chunking
 // code splitting
@@ -30,7 +31,7 @@ const AppLayout = () => {
       <Toaster />
       <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </Provider>
   );
 };
@@ -56,6 +57,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/help",
+        element: <Help />,
       },
       {
         path: "/login",

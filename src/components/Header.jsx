@@ -20,7 +20,9 @@ const Titel = () => (
   <div className="logo text-[2.2rem]  pl-10 pt-2 ">
     <Link to="/">
       <div className="flex items-center hover:scale-105 transition  delay-150">
-        <div className="afacad-flux-title text-[#EB5B00] text-4xl font-bold">Food Villa</div>
+        <div className="afacad-flux-title text-[#EB5B00] text-4xl font-bold">
+          Food Villa
+        </div>
       </div>
     </Link>
   </div>
@@ -86,9 +88,12 @@ const Header = () => {
                 Contact
               </li>
             </Link>
-            {/* <Link to="/instamart">
-              <li className="px-4">Instamart</li>
-            </Link> */}
+            <Link to="/help">
+              <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
+                <FontAwesomeIcon icon={faHeadset} className="pr-1" />
+                Help
+              </li>
+            </Link>
             <Link to="/cart">
               <li>
                 <button
