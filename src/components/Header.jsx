@@ -82,6 +82,12 @@ const Header = () => {
                 About
               </li>
             </Link> */}
+            <Link to="/search">
+              <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
+                <FontAwesomeIcon icon={faHeadset} className="pr-1" />
+                Search
+              </li>
+            </Link>
             <Link to="/contact">
               <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
                 <FontAwesomeIcon icon={faHeadset} className="pr-1" />

@@ -14,6 +14,7 @@ import Contact from "./components/Contact";
 import { Toaster } from "react-hot-toast";
 import Login from "./components/Login";
 import Help from "./components/Help";
+import Search from "./components/Search";
 
 //chunking
 // code splitting
@@ -65,6 +66,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
     ],
   },

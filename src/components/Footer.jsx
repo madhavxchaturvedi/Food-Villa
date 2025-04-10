@@ -29,7 +29,7 @@ const Footer = () => {
             <h1 className="truncate">© 2025 FOOD VILLA</h1>
           </div>
           {footer_content.map((x, index) => (
-            <div key={index} className={`${index === 2 ? "col-start-3 " : ""}`}>
+            <div key={index} className={`${index === 3 ? "col-start-3 " : ""}`}>
               <h1 className="font-BasisGrotesquePro font-bold text-base leading-10 tracking-tighter text-white">
                 {x.title}
               </h1>
@@ -40,17 +40,6 @@ const Footer = () => {
               ))}
             </div>
           ))}
-          <div className="col-start-4 row-start-1">
-            <h1 className="font-BasisGrotesquePro font-bold text-base leading-10 tracking-tighter text-white">
-              We deliver to :
-            </h1>
-            <div className="flex justify-between mt-2 align-center items-center cursor-pointer border-[#ffffff70] border-solid border-[1px] w-fit px-2 rounded-xl">
-              <h1 className="p-1 h-fit truncate">cities</h1>
-              <div className="ml-2 pr-1">
-                <FontAwesomeIcon icon={faChevronDown} />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -61,7 +50,7 @@ const Footer = () => {
         <div className="grid grid-cols-4 gap-x-16 w-[80%]"></div>
       </div>
       <div className="flex flex-col w-full items-center justify-center bg-[#1b1b1b] text-white ">
-        <div className="flex justify-between items-center gap-8 py-4">
+        <div className="flex justify-between items-center gap-8">
           <a>
             <FontAwesomeIcon
               className="text-3xl hover:text-[#0a66c2]"

@@ -45,12 +45,12 @@ const Help = () => {
           </h4>
         </div>
         <div className="flex bg-white text-[#545a79] mx-auto p-10 shadow-xl xl:max-w-[80%] lg:max-w-[80%] md:max-w-[90%] sm:max-w-[90%]">
-          <div className="py-5 pl-3 bg-[#edf1f7] top-20 list-none min-w-fit h-fit">
+          <div className="py-5 pl-3 bg-[#EB5B00] sticky top-20 list-none min-w-fit  h-fit">
             {helpTitle.map((curr, index, value) => {
               return (
                 <div
                   key={index}
-                  className={`text-[#8a8b91] ml-2 px-4 py-5 text-[13px] font-normal cursor-pointer hover:text-black hover:font-bold ${
+                  className={`text-[#ffffff] ml-2 px-4 py-5 text-[16.5px] font-normal cursor-pointer hover:text-black hover:font-bold ${
                     activeTitle === index ? "bg-white" : ""
                   }`}
                   onClick={(event) => handleClick(event, index)}
@@ -67,7 +67,7 @@ const Help = () => {
               );
             })}
           </div>
-          <div className="w-full pl-10 pt-4">
+          <div className="w-full pl-10 pt-4 ">
             {FAQ.map((curr, index, val) => {
               return (
                 <FAQItem {...val[index]} key={val[index].id} index={index} />
