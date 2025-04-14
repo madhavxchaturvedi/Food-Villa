@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../utils/cartSlice";
 
 const Titel = () => (
   <div className="logo text-[2.2rem]  pl-10 pt-2 ">
@@ -42,6 +43,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         Navigate("/");
+        dispatch(clearCart());
       })
       .catch((error) => {
         // Navigate("/error");

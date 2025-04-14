@@ -4,7 +4,7 @@ import {
   selectItemsInCart,
   selectTotalPrice,
 } from "../utils/cartSlice";
-
+import toast from "react-hot-toast";
 
 const OrderSummary = () => {
   const cartItems = useSelector(selectItemsInCart);
@@ -17,6 +17,11 @@ const OrderSummary = () => {
   function emptyCart() {
     dispatch(clearCart());
   }
+
+  const handleOrderPlaced = () => {
+    dispatch(clearCart());
+    toast.success("Your Order is successfully ordered!🎉");
+  };
 
   return (
     <div className=" basis-5/12 h-fit sticky top-40">
@@ -72,7 +77,7 @@ const OrderSummary = () => {
         </div>
         <button
           className="w-full block hover:scale-105 transition delay-150  mt-4 uppercase font-bold text-lg bg-[#EB5B00] text-white text-center p-4 rounded-md"
-         
+          onClick={() => handleOrderPlaced()}
         >
           Place order
         </button>

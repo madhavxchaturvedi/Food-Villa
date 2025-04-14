@@ -74,41 +74,20 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container m-2 flex justify-center">
-        {/* <input
-          type="text"
-          className="search-input p-3 mt-2 rounded-l-lg w-[600px] h-10 shadow-xl outline-indigo-500 z-10"
-          placeholder="Search"
-          value={searchText}
-          onChange={(e) => {
-            setsearchText(e.target.value);
-          }}
-        ></input>
-        <button
-          className="search-btn p-1 bg-indigo-500 hover:bg-indigo-600 focus:ring focus:ring-indigo-300 mt-2 shadow-lg  rounded-r-md text-white font-bold h-10  w-16 "
-          onClick={() => {
-            const data = filterData(searchText, allRestaurants);
-            setfilteredRestaurants(data);
-          }}
-        >
-          Search
-        </button> */}
-
-        {/* <input
-          type="text"
-          className="search-input p-3 mt-2 rounded h-10 shadow-xl outline-indigo-500"
-          value={user.name}
-          onChange={(e) => {
-            setUser({
-              name: e.target.value,
-              email: "abc@gmail.com",
-            });
-          }}
-        ></input> */}
-      </div>
-
       <>
-        <div className="body xl:max-w-[85%] mx-auto min-h-screen pt-10 ">
+        <div className="body xl:max-w-[85%] mx-auto min-h-screen">
+          <div className="mx-auto header">
+            <div className="header-contents">
+              <h2>Order your favourite food here</h2>
+              <p>
+                Choose from a diverse menu featuring a delectable array of
+                dishes crafted with the finest ingredients and culinary
+                expertise. Our mission is to satisfy your cravings and elevate
+                your dining experience, one delicious meal at a time.
+              </p>
+              <button>View Menu</button>
+            </div>
+          </div>
           {WOYM && (
             <>
               <div className="flex justify-between mx-12 px-4">
