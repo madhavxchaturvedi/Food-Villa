@@ -7,6 +7,8 @@ import {
   faCartShopping,
   faCircleNotch,
   faHeadset,
+  faMagnifyingGlass,
+  faMessage,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -84,20 +86,20 @@ const Header = () => {
             </Link> */}
             <Link to="/search">
               <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
-                <FontAwesomeIcon icon={faHeadset} className="pr-1" />
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="pr-1" />
                 Search
-              </li>
-            </Link>
-            <Link to="/contact">
-              <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
-                <FontAwesomeIcon icon={faHeadset} className="pr-1" />
-                Contact
               </li>
             </Link>
             <Link to="/help">
               <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
                 <FontAwesomeIcon icon={faHeadset} className="pr-1" />
                 Help
+              </li>
+            </Link>
+            <Link to="/contact">
+              <li className="px-4 transition ease-in hover:text-[#EB5B00] py-1">
+                <FontAwesomeIcon icon={faMessage} className="pr-1" />
+                Contact
               </li>
             </Link>
             <Link to="/cart">

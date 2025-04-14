@@ -117,7 +117,7 @@ const Body = () => {
                 </h1>
                 <Slider className="foodCategory" amount={350} />
               </div>
-              <div className="foodCategory container-snap mx-12 flex p-4 overflow-x-auto">
+              <div className="foodCategory container-snap mx-12 flex p-4 no-scrollbar overflow-x-auto">
                 {WOYM.map((img) => {
                   return (
                     <div
@@ -145,7 +145,7 @@ const Body = () => {
             </h1>
             <Slider className="topResList" key="topResList" amount={450} />
           </div>
-          <div className="topResList container-snap mx-12 p-4 flex mt-2 mb-2 overflow-x-auto">
+          <div className="topResList container-snap mx-12 p-4 flex mt-2 mb-2 no-scrollbar overflow-x-auto">
             {filteredRestaurants.map((restaurant) => {
               return (
                 <Link

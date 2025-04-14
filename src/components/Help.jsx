@@ -39,8 +39,8 @@ const Help = () => {
     <div className="min-h-screen min-w-[85%] mx-auto">
       <div className="text-white bg-[#e9ecee] pb-20 px-10">
         <div className="flex flex-col flex-1 pt-14 px-8 xl:max-w-[80%] lg:max-w-[80%] md:max-w-[90%] sm:max-w-[90%] mx-auto">
-          <h1 className="mt-5 font-extrabold text-3xl text-black">Help & Support</h1>
-          <h4 className="pb-12 font-light text-base text-black">
+          <h1 className="mt-5 font-extrabold text-4xl text-black">Help & Support</h1>
+          <h4 className="pb-12 font-semibold text-base text-black">
             Let's take a step ahead and help you better.
           </h4>
         </div>

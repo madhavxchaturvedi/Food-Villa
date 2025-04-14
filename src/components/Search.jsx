@@ -33,19 +33,19 @@ const Search = () => {
         <input
           type="text"
           className="flex-1 px-3 py-3 focus:outline-none"
-          placeholder="Search for restaurants or cuisines"
+          placeholder="Search for restaurants"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <FontAwesomeIcon
-          icon={searchText === "" ? faSearch : faXmark}
+          icon={faXmark}
           className="text-[#7e818d] py-2 pr-4 cursor-pointer"
           onClick={() => {
             handleXClick();
           }}
         />
         <button
-          className="search-btn bg-indigo-500 hover:bg-indigo-600 focus:ring focus:ring-indigo-300 shadow-lg  rounded-r-md text-white font-bold h-10  w-16 "
+          className="search-btn bg-[#EB5B00] hover:bg-orange-700 focus:ring focus:ring-indigo-300 shadow-lg  rounded-r-md text-white font-bold h-10  w-16 "
           onClick={() => {
             const data = filterData(searchText, allRestaurentsData);
             setfilteredRestaurants(data);
