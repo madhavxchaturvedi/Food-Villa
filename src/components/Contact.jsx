@@ -1,4 +1,8 @@
-import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 // import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
@@ -94,7 +98,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#EB5B00 ] font-bold text-white py-2 rounded-lg hover:opacity-80"
+              className="w-full bg-[#EB5B00] font-bold text-white py-2 rounded-lg hover:opacity-80"
             >
               Send Message
             </button>
@@ -106,10 +110,10 @@ const Contact = () => {
           <h2 className="text-xl font-semibold">Follow Us</h2>
           <div className="flex justify-center gap-10 my-8  text-2xl">
             <a href="#" className="text-blue-600 text-4xl">
-            <FontAwesomeIcon icon={faFacebook} />
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a href="#" className="text-blue-400 text-4xl">
-            <FontAwesomeIcon icon={faTwitter} />
+              <FontAwesomeIcon icon={faTwitter} />
             </a>
             <a href="#" className="text-pink-600 text-4xl">
               <FontAwesomeIcon icon={faInstagram} />
