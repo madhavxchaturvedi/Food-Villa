@@ -9,6 +9,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/userSlice";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -43,6 +44,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          toast.success("You are Successfully LogIn!");
           Navigate("/");
           updateProfile(user, {
             displayName: name.current.value,
@@ -79,6 +81,7 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           Navigate("/");
+          toast.success("You are Successfully LogIn!");
         })
         .catch((error) => {
           const errorCode = error.code;

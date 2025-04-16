@@ -3,7 +3,7 @@ import "./Success.css";
 
 const Success = () => {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-[#eee]">
+    <div className="flex flex-col min-h-screen items-center  bg-[#fff]">
       <svg
         className="checkmark mt-20"
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,9 @@ const Success = () => {
           d="M14.1 27.2l7.1 7.2 16.7-16.8"
         />
       </svg>
-      <h2 className="mt-4 text-2xl text-[#282c3f] font-bold tracking-tight">Order Placed</h2>
+      <h2 className="text-4xl text-[#282c3f] font-bold tracking-tight">
+        Order Placed Successfully
+      </h2>
     </div>
   );
 };

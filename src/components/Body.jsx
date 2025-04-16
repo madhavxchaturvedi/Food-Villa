@@ -8,6 +8,7 @@ import { filterData } from "../utils/helper";
 import Slider from "./Slider";
 import { useDispatch } from "react-redux";
 import { addAllRestaurents } from "../utils/searchSlice";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 const Body = () => {
   const [allRestaurants, setallRestaurants] = useState([]);
@@ -158,6 +159,7 @@ const Body = () => {
               );
             })}
           </div>
+          <ScrollToTopButton />
         </div>
       </>
     </>

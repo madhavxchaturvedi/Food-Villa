@@ -5,6 +5,11 @@ import {
   selectTotalPrice,
 } from "../utils/cartSlice";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import Success from "./Success";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const OrderSummary = () => {
   const cartItems = useSelector(selectItemsInCart);
@@ -14,16 +19,49 @@ const OrderSummary = () => {
   const totalAmt = totalPrice / 100 + deliveryCharges - discount;
   const dispatch = useDispatch();
 
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
   function emptyCart() {
     dispatch(clearCart());
+    toast.success("Your cart is clear!");
   }
 
   const handleOrderPlaced = () => {
+    setOrderPlaced(true);
     dispatch(clearCart());
     toast.success("Your Order is successfully ordered!🎉");
   };
 
-  return (
+  return orderPlaced === true ? (
+    <div className="w-full">
+      <Success />
+    </div>
+  ) : cartItems.length === 0 ? (
+    <div className="min-h-screen flex flex-col mt-20  items-center ">
+      <div className="text-4xl font-bold uppercase text-[#2E8B57] my-4 flex gap-2 items-center ">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png"
+          alt="Updated Soon"
+          className="h-96 justify-center ml-5"
+        />
+        <div className="flex flex-col">
+          Your cart is currently on a diet! Go ahead, fill it up with delicious
+          options!
+          <div className="mt-10 flex text-[#f37645] justify-between">
+            <div className="text-2xl">
+              Let’s turn that empty cart into a feast! Check out our delicious
+              selections
+            </div>
+            <Link to="/">
+              <button className="ml-9 px-3 py-1 text-white cursor-pointer hover:scale-110 transition ease-in-out bg-[#38a567] rounded-2xl">
+                <FontAwesomeIcon icon={faArrowRight} size="2xl" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
     <div className=" basis-5/12 h-fit sticky top-40">
       <div className="   p-4 rounded-md border shadow-lg my-8 md:m-0">
         <diV className="flex justify-between border-b items-center">
