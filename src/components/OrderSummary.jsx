@@ -19,24 +19,12 @@ const OrderSummary = () => {
   const totalAmt = totalPrice / 100 + deliveryCharges - discount;
   const dispatch = useDispatch();
 
-  const [orderPlaced, setOrderPlaced] = useState(false);
-
   function emptyCart() {
     dispatch(clearCart());
     toast.success("Your cart is clear!");
   }
 
-  const handleOrderPlaced = () => {
-    setOrderPlaced(true);
-    dispatch(clearCart());
-    toast.success("Your Order is successfully ordered!🎉");
-  };
-
-  return orderPlaced === true ? (
-    <div className="w-full">
-      <Success />
-    </div>
-  ) : cartItems.length === 0 ? (
+  return cartItems.length === 0 ? (
     <div className="min-h-screen flex flex-col mt-20  items-center ">
       <div className="text-4xl font-bold uppercase text-[#2E8B57] my-4 flex gap-2 items-center ">
         <img
@@ -113,12 +101,12 @@ const OrderSummary = () => {
             </h1>
           </div>
         </div>
-        <button
-          className="w-full block hover:scale-105 transition delay-150  mt-4 uppercase font-bold text-lg bg-[#EB5B00] text-white text-center p-4 rounded-md"
-          onClick={() => handleOrderPlaced()}
-        >
-          Place order
-        </button>
+
+        <Link to={"/checkout"}>
+          <button className="w-full block hover:scale-105 transition delay-150  mt-4 uppercase font-bold text-lg bg-[#EB5B00] text-white text-center p-4 rounded-md">
+            Proceed to Checkout
+          </button>
+        </Link>
       </div>
       <div className="bg-green-100 font-medium border rounded-sm mt-5 px-5 py-3 border-green-800 text-green-700">
         You'll save ₹{parseFloat(discount).toFixed(2)} on this order 🎉

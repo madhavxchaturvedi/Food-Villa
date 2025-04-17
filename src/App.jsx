@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./components/Login";
 import Help from "./components/Help";
 import Search from "./components/Search";
+import CheckoutPage from "./components/CheckoutPage";
 
 //chunking
 // code splitting
@@ -70,6 +71,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckoutPage/> ,
       },
     ],
   },
