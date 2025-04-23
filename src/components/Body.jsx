@@ -159,7 +159,6 @@ const Body = () => {
               );
             })}
           </div>
-          <ScrollToTopButton />
         </div>
       </>
     </>

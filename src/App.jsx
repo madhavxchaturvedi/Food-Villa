@@ -16,6 +16,7 @@ import Login from "./components/Login";
 import Help from "./components/Help";
 import Search from "./components/Search";
 import CheckoutPage from "./components/CheckoutPage";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 //chunking
 // code splitting
@@ -34,6 +35,7 @@ const AppLayout = () => {
       <Header />
       <Outlet />
       <Footer />
+      <ScrollToTopButton />
     </Provider>
   );
 };
@@ -74,7 +76,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <CheckoutPage/> ,
+        element: <CheckoutPage />,
       },
     ],
   },

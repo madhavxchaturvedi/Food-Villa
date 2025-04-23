@@ -12,7 +12,7 @@ export const checkValidData = (email, password) => {
 
   // if (!isFullNameValid) return "Name is not valid!";
   if (!isEmailValid) return "Email ID is not valid!";
-  if (!isPasswordValid) return "Password is not valid!";
+  if (!isPasswordValid) return "Password is not valid! Password must be 6 characters, start with an uppercase letter, and include a number & symbol.";
 
   return null;
 };
